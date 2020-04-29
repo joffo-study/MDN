@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="utf-8">
+	<title>Hidden info panel</title>
+
+  <style>
+    /* || Checkbox hack to control information box display */
+    label[for="toggle"] {
+        font-size: 3rem;
+      position: absolute;/*绝对位置，是对整个页面布局来看的，相对位置是相对它浏览器的原始位置来变动的*/
+      top: 4px; /*绝对位置，表示的是距离页面边缘的距离，相对，表示的是原始位置向哪个方向移动的距离。*/
+      right: 15px;
+      z-index: 1;
+      cursor: pointer;/*鼠标触碰变手！*/
+    }
+    input[type="checkbox"] {
+       position: absolute;
+       top: -50px;/*将勾选方框放出页面*/
+    }
+    /* information box styling */
+    aside {
+      background-color: #a60000;
+      color: white;
+      width: 340px;
+      height: 100%;/*又可以用100%？*/
+      padding: 10px 1%;
+      position: fixed;/*当页面滑动时，元素固定位置不变*/
+      top: 0;
+      right: -330px;
+      transition: 1.6s all;
+      box-sizing: border-box;
+    }
+    /* Second part of the checkbox hack — the checked state */
+    input[type=checkbox]:checked + aside {/*设置right边距实现滑动*/
+      right: 0px;
+    }
+  </style>
+
+</head>
+<body>
+
+
+  <label for="toggle">❔</label>
+  <input type="checkbox" id="toggle">
+  <aside>
+    <h2>Information</h2>
+
+    <p>Some very important information about your app:</p>
+
+    <ol>
+      <li>It has a really cool slide-out information box.</li>
+      <li>This information box uses a combination of fixed positioning and a CSS transition for the smooth sliding.</li>
+      <li>It also uses a cool technique called the <a href="https://css-tricks.com/the-checkbox-hack/">checkbox hack</a>.</li>
+      <li>This allows you to create a nice "toggle on/toggle off" UI effect without using any JavaScript, which will work in IE9 and above (the smooth transition will work in IE10 and above.)</li>
+
+    </ol>
+
+  </aside>
+</body>
+</html>

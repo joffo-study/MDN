@@ -1,0 +1,12 @@
+.flow-box {
+    width: 800px; background-color: #eee; 
+    
+}
+.flow-content {
+    overflow: hidden;
+    
+}
+img{
+    padding-right: 120px;
+}
+
